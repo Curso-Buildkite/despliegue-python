@@ -1,0 +1,9 @@
+steps:
+  - label: "Test Requirements"
+    command:
+      - "pip install -r requirements.txt"
+    plugins:
+      - docker#v3.5.0:
+          image: "python:3.8-slim"
+  - label: "Test Docker Build"
+    command: "docker build -t pythontestbuild --no-cache ."
