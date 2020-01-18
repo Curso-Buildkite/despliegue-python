@@ -7,3 +7,8 @@ steps:
           image: "python:3.8-slim"
   - label: "Test Docker Build"
     command: "docker build -t pythontestbuild --no-cache ."
+  - wait
+  - label: "Despliegue en Heroku"
+    commands:
+      - "heroku git:remote -a curso-buildkite"
+      - "git push heroku ${BUILDKITE_COMMIT}:master"
