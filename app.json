@@ -1,0 +1,6 @@
+{
+  "name": "Despliegue Python en Heroku",
+  "description": "Despliegues de ejemplo de python en Heroku con Buildkite",
+  "image": "heroku/python",
+  "keywords": ["python", "fastapi" ]
+}
