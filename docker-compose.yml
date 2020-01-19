@@ -2,6 +2,8 @@ version: '3.7'
 services:
   db:
     image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=testingapp
   memcache:
     image: memcached
   app:
@@ -13,4 +15,4 @@ services:
       - db
       - memcache
     environment:
-      MYSQL_ROOT_PASSWORD: testingapp
+      - MYSQL_ROOT_PASSWORD=testingapp

@@ -2,7 +2,7 @@ steps:
   - name: "Docker Test"
     command: python test.py
     plugins:
-    - docker-compose#v3.0.3:
+    - docker-compose#v3.1.0:
         run: app
   - wait
   - label: "Docker Build"
