@@ -7,7 +7,7 @@ steps:
   - wait
   - label: "Docker Build"
     commands:
-      - "docker build -t andorpierdelacabeza/curso-buildkite:latest --no-cache ."
+      - "docker build -t andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT} --no-cache ."
       - "docker push andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT}"
   - block: " ¿Listo para desplegar? :rocket: "
   - label: ":rocket: Despliega :kubernetes:"
