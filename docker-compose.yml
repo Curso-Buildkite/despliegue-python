@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  db:
+    image: mariadb
+  memcache:
+    image: memcached
+  app:
+    build: .
+    working_dir: /app
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - memcache
+    environment:
+      MYSQL_ROOT_PASSWORD: testingapp

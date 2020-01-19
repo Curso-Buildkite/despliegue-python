@@ -1,4 +1,10 @@
 steps:
+  - name: "Docker Test"
+    command: python test.py
+    plugins:
+    - docker-compose#v3.0.3:
+        run: app
+  - wait
   - label: "Docker Build"
     commands:
       - "docker build -t andorpierdelacabeza/curso-buildkite:latest --no-cache ."
