@@ -1,5 +1,7 @@
 steps:
   - label: "Docker Build"
     commands:
-      - "docker build -t pythontestbuild --no-cache ."
+      - "docker build -t andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT} --no-cache ."
+      - "docker tag andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT} andorpierdelacabeza/curso-buildkite:latest"
       - "docker push andorpierdelacabeza/curso-buildkite:latest"
+      - "docker push andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT}"
