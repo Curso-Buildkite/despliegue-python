@@ -8,6 +8,9 @@ steps:
   - label: "Docker Build"
     commands:
       - "docker build -t andorpierdelacabeza/curso-buildkite:latest --no-cache ."
-      - "docker tag andorpierdelacabeza/curso-buildkite:latest andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT}"
-      - "docker push andorpierdelacabeza/curso-buildkite:latest"
       - "docker push andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT}"
+  - block: " ¿Listo para desplegar? :rocket: "
+  - label: ":rocket: Despliega :kubernetes:"
+    command: scripts/deploy.sh
+    concurrency: 1
+    concurrency_group: deploy/kubernetes
