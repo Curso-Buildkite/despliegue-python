@@ -3,16 +3,16 @@
 set -euo pipefail
 
 if [ -z "${BUILDKITE_COMMIT:-}" ]; then
-  echo ":boom: \$DOCKER_IMAGE missing" 1>&2
+  echo ":boom: \$BUILDKITE_COMMIT missing" 1>&2
   exit 1
 fi
 
 manifest="$(mktemp)"
 
-echo '--- :kubernetes: Shipping'
+echo '--- :kubernetes: Lanzando...'
 
 envsubst < kubernetes/deployment.yml > "${manifest}"
 kubectl apply -f "${manifest}"
 
-echo '--- :zzz: Waiting for deployment'
+echo '--- :zzz: Esperando al despliegue'
 kubectl wait --for condition=available --timeout=300s -f "${manifest}"

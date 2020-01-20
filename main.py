@@ -10,7 +10,7 @@ def read_root():
 
 @app.get("/version")
 def read_root():
-    return {"Version": "1.1"}
+    return {"Version": "1.2"}
 
 
 @app.get("/nombre/{nombre}")

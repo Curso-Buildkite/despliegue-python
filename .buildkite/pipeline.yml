@@ -10,6 +10,7 @@ steps:
       - "docker build -t andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT} --no-cache ."
       - "docker push andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT}"
   - block: " ¿Listo para desplegar? :rocket: "
+  # Nuestro despliegue
   - label: ":rocket: Despliega :kubernetes:"
     command: scripts/deploy.sh
     concurrency: 1
