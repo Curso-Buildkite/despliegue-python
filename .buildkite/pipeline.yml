@@ -15,3 +15,5 @@ steps:
     if: build.branch == 'deployment'
     build:
       commit: "$BUILDKITE_COMMIT"
+      branch: "${BUILDKITE_BRANCH}"
+
