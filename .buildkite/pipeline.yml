@@ -9,9 +9,9 @@ steps:
     commands:
       - "docker build -t andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT} --no-cache ."
       - "docker push andorpierdelacabeza/curso-buildkite:${BUILDKITE_COMMIT}"
-  - block: " ¿Listo para desplegar? :rocket: "
-  # Nuestro despliegue
-  - label: ":rocket: Despliega :kubernetes:"
-    command: scripts/deploy.sh
-    concurrency: 1
-    concurrency_group: deploy/kubernetes
+
+  - label: ":rocket:"
+    trigger: "proyecto-python-despliegue"
+    if: build.branch == 'master'
+    build:
+      commit: "$BUILDKITE_COMMIT"
