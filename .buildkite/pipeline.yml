@@ -12,6 +12,6 @@ steps:
 
   - label: ":rocket:"
     trigger: "proyecto-python-despliegue"
-    if: build.branch == 'master'
+    if: build.branch == 'deployment'
     build:
       commit: "$BUILDKITE_COMMIT"
