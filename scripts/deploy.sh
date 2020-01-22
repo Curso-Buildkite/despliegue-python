@@ -11,8 +11,8 @@ manifest="$(mktemp)"
 
 echo '--- :kubernetes: Lanzando...'
 
-envsubst < kubernetes/deployment.yml > "${manifest}"
-kubectl apply -f "${manifest}"
+sleep 1
 
 echo '--- :zzz: Esperando al despliegue'
-kubectl wait --for condition=available --timeout=300s -f "${manifest}"
+
+sleep 1
